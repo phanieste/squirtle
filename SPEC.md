@@ -8,8 +8,8 @@ Users: Columbia students who want to spend the least time in the package center 
 
 ### Technical Requirements
 
-Frontend: HTML/CSS/Javascript -- choose a framework; Swift (iOS)
-Backend: Java (Android), Swift/ Python (iOS), Python Flask? (web)
+Frontend: HTML/CSS/Javascript -- choose a framework; Swift (iOS)  
+Backend: Java (Android), Swift/ Python (iOS), Python Flask? (web)  
 DB: PostgreSQL
 
 ### Minimum Viable Product
@@ -32,14 +32,14 @@ A web app that allows students to record the amount of time they waited in line 
 ### Timeline
 
 1. Week 1 (9/25)
---* Set up GitHub stuff
---* Research mobile development tools
---* Set up development environment (individual)
+  * Set up GitHub stuff
+  * Research mobile development tools
+  * Set up development environment (individual)
 2. Week 2 (10/2)
---* Set up a database of some sort storing important user info 
---* NoSQL  vs. PostGreSQL
+  * Set up a database of some sort storing important user info 
+  * NoSQL  vs. PostGreSQL
 3. Week 3 (10/9) 
---* Basic way of gathering the information
+  * Basic way of gathering the information
 4. Week 4 (10/16)
 5. Week 5 (10/23)
 6. Week 6 (10/30)
