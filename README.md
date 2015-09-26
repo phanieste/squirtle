@@ -1,1 +1,4 @@
 # squirtle
+
+### Team
+Stephanie Huang
