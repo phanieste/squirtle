@@ -8,9 +8,9 @@ Users: Columbia students who want to spend the least time in the package center 
 
 ### Technical Requirements
 
-Frontend: HTML/CSS/Javascript -- choose a framework; Swift (iOS)  
-Backend: Java (Android), Swift/ Python (iOS), Python Flask? (web)  
-DB: PostgreSQL
+Frontend: React  
+Backend: Python Flask  
+DB: Firebase
 
 ### Minimum Viable Product
 
@@ -28,6 +28,7 @@ A web app that allows students to record the amount of time they waited in line 
 * Graphs average wait time throughout the week
 * Collects data about time between when a student checked to see if they had a package to pick up and when they actually picked up their package
 * Lists students who are willing to pick up another student’s packages for monetary compensation
+* Have a tablet at the package center line where people can tap in and out.
 
 ### Timeline
 
