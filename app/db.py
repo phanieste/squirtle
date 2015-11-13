@@ -1,5 +1,8 @@
 from firebase import firebase
 from firebase_token_generator import create_token
+from dateutil.parser import parse
+
+import datetime as dt
 import os
 
 FIREBASE_URL = 'https://resplendent-torch-6836.firebaseio.com'
@@ -18,7 +21,8 @@ def get_user(username):
 
 # add a person in line
 def new_person(ident, time):
-    result = firebase.post('/line', { 'ident': ident, 'timestamp': time }, 
+    result = firebase.post('/line', { 'ident': ident, 
+                'timestamp': time.isoformat() }, 
                 connection=None, params={'print': 'pretty', 'auth': token})
     return result
 
@@ -31,10 +35,12 @@ def update_times(ident, time):
                 'equalTo': str('"' + ident + '"')})
     key = result.keys()[0]
     data = result[key]
-    total_time = time - data['timestamp']
-    new_entry = {'name': name, 'timeIn': data['timestamp'], 'timeOut': time, 
-                'total': total_time}
-    firebase.post('/data', new_entry, conection=None, 
-                    params={'print': 'pretty', 'auth': token})
-    firebase.delete('/line', key)
 
+    total_time = time - parse(data['timestamp'])
+    new_entry = {'ident': ident, 'timeIn': data['timestamp'], 'timeOut': time, 
+                'total': str(total_time)}
+    firebase.post('/data', new_entry, connection=None, 
+                    params={'print': 'pretty', 'auth': token})
+    firebase.delete('/line', key, connection=None, 
+                    params={'print': 'pretty', 'auth': token})
+    return str(total_time)

@@ -15,13 +15,13 @@ def get_user(username):
 
 @app.route("/add_time/<ident>")
 def add_time(ident):
-    time = dt.datetime.now().isoformat()
+    time = dt.datetime.now()
     return json.dumps(db.new_person(ident, time))
 
-@app.route("/add_data/<username>,<time>")
-def add_data(username, time):
-    time = dt.datetime.now().isoformat()
-    return json.dumps(db.update_times(username, time))
+@app.route("/add_data/<ident>")
+def add_data(ident):
+    time = dt.datetime.now()
+    return str(db.update_times(ident, time))
 
 
 if __name__ == "__main__":
