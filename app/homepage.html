@@ -34,6 +34,10 @@
 						setInterval(this.timer, 1000);
 					},
 					gotPackage: function() {
+						$.get("http://ipinfo.io", function(response) {
+							$.post(URL, response.ip);
+						}, "jsonp");
+
 						$('.InLineButton').css('visibility', 'visible');
 						$('.GotPackageButton').css('visibility', 'hidden');
 						$('.LeftLineButton').css('visibility', 'hidden');
@@ -46,6 +50,12 @@
 						location.reload();
 					},
 					inLine: function() {
+						// $.get("http://ipinfo.io", function(response) {
+						// 	$.post(URL, response.ip);
+						// }, "jsonp");
+
+						jQuery.post('localhost:5000');
+
 						s.hours = 0,
 						s.secs = 0,
 						s.mins = 0;
@@ -83,4 +93,16 @@
 		</script>
 
 	</body>
+<H2>Last Recorded Wait Time:</H2> 
+	<script>
+		var h=1;
+		var m=10;
+		var s=3;
+		document.write (("0" + h).slice(-2) + ":" + ("0" + m).slice(-2) + ":"+ ("0" + s).slice(-2));
+	</script>
+<H2>Number of Students in Line:</H2> 
+	<script>
+		var n=5;
+		document.write (n);
+	</script>
 </html>
