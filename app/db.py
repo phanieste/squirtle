@@ -44,3 +44,19 @@ def update_times(ident, time):
     firebase.delete('/line', key, connection=None, 
                     params={'print': 'pretty', 'auth': token})
     return str(total_time)
+
+# get last completed wait time
+def get_time():
+    # ident = "hji3724"
+    # result = firebase.get('/line', None, connection=None,
+    #         params={'print': 'pretty', 
+    #             'auth': token,
+    #             'orderBy': '"ident"'})
+                # 'equalTo': str('"' + ident + '"')})
+    result = firebase.get('/data', None, connection=None,
+            params={'print': 'pretty', 
+                'auth': token,
+                'orderBy': '"timeOut"',
+                'limitToLast': '1'})
+    total_time = result[result.keys()[0]]['total']
+    return total_time
