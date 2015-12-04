@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    return render_template('homepage.html')
 
 @app.route("/get_user/<username>")
 def get_user(username):
@@ -22,6 +22,10 @@ def add_time(ident):
 def add_data(ident):
     time = dt.datetime.now()
     return str(db.update_times(ident, time))
+
+@app.route("/get_time")
+def get_time():
+    return db.get_time()
 
 
 if __name__ == "__main__":
