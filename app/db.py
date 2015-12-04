@@ -33,7 +33,7 @@ def update_times(ident, time):
                 'auth': token,
                 'orderBy': '"ident"',
                 'equalTo': str('"' + ident + '"')})
-    key = result.keys()[0]
+    key = list(result.keys())[0]
     data = result[key]
 
     total_time = time - parse(data['timestamp'])
@@ -52,7 +52,7 @@ def get_time():
                 'auth': token,
                 'orderBy': '"timeOut"',
                 'limitToLast': '1'})
-    key = result.keys()[0]
+    key = list(result.keys())[0]
     total_time = result[key]['total']
     return total_time
 
