@@ -52,8 +52,7 @@ def get_time():
                 'auth': token,
                 'orderBy': '"timeOut"',
                 'limitToLast': '1'})
-    key = result.keys()[0]
-    total_time = result[key]['total']
+    total_time = result[list(result.keys())[0]]['total']
     return total_time
 
 # get a count of people in line

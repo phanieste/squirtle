@@ -8,10 +8,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-<<<<<<< HEAD
-
-=======
->>>>>>> 9c1885c5c556ec52f9adcc26dfb000b9841ed01b
     return render_template('homepage.html')
 
 @app.route("/get_user/<username>")
@@ -44,6 +40,17 @@ def get_time():
 @app.route("/line_count")
 def line_count():
     return str(db.count_line())
+
+@app.route("/systemInformation", methods= ['POST'])
+def getInfo():
+    print('something')
+    if request.method == 'POST':
+        time  = db.get_time()
+        peopleInLine = db.count_line()
+        systemInfo = {'time' : time, "People in Line": peopleInLine}
+        return json.dumps(systemInfo)
+
+
 
 
 if __name__ == "__main__":
