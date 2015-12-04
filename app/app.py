@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c1885c5c556ec52f9adcc26dfb000b9841ed01b
     return render_template('homepage.html')
 
 @app.route("/get_user/<username>")
@@ -33,6 +36,10 @@ def currentTime():
          return self.client_address[0]
 	else:
 		return 'wrong'
+
+@app.route("/get_time")
+def get_time():
+    return db.get_time()
 
 
 if __name__ == "__main__":
