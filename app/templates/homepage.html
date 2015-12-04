@@ -7,6 +7,9 @@
 	</head>
 <H1>Package Center Tracker</H1> 
 	<body>
+		<form action="Stopwatch.inLine();" method="post">
+		    <button name="foo" value="upvote">Upvote</button>
+		</form>
    		<nav class="controls">
 			<a href="#" class="InLineButton" onClick="Stopwatch.inLine();">I Got In Line</a>
 			<a href="#" class="GotPackageButton" onClick="Stopwatch.gotPackage();">I Got My Package</a>
@@ -50,12 +53,10 @@
 						location.reload();
 					},
 					inLine: function() {
-						// $.get("http://ipinfo.io", function(response) {
-						// 	$.post(URL, response.ip);
-						// }, "jsonp");
+						console.log("this is working");
+						$.post('/systemInformation', {param: 1}, function(systemInfo) {
 
-						jQuery.post('localhost:5000');
-
+						console.log(systemInfo) });
 						s.hours = 0,
 						s.secs = 0,
 						s.mins = 0;
