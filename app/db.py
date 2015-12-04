@@ -47,16 +47,17 @@ def update_times(ident, time):
 
 # get last completed wait time
 def get_time():
-    # ident = "hji3724"
-    # result = firebase.get('/line', None, connection=None,
-    #         params={'print': 'pretty', 
-    #             'auth': token,
-    #             'orderBy': '"ident"'})
-                # 'equalTo': str('"' + ident + '"')})
     result = firebase.get('/data', None, connection=None,
             params={'print': 'pretty', 
                 'auth': token,
                 'orderBy': '"timeOut"',
                 'limitToLast': '1'})
-    total_time = result[result.keys()[0]]['total']
+    key = result.keys()[0]
+    total_time = result[key]['total']
     return total_time
+
+# get a count of people in line
+def count_line():
+    result = firebase.get('/line', None, connection=None,
+            params={'print': 'pretty', 'auth': token})
+    return len(result)
