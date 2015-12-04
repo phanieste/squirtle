@@ -53,8 +53,10 @@
 						location.reload();
 					},
 					inLine: function() {
-						$.post('/currentTime', {param: 1}, function(data) { 
-						console.log(data) });
+						console.log("this is working");
+						$.post('/systemInformation', {param: 1}, function(systemInfo) {
+
+						console.log(systemInfo) });
 						s.hours = 0,
 						s.secs = 0,
 						s.mins = 0;
