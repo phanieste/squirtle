@@ -41,6 +41,10 @@ def currentTime():
 def get_time():
     return db.get_time()
 
+@app.route("/line_count")
+def line_count():
+    return str(db.count_line())
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
